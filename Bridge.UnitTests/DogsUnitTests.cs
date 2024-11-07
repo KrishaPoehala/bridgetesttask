@@ -1,4 +1,5 @@
 using AutoMapper;
+using Bridge.Application.Common.Exceptions;
 using Bridge.Application.Common.Interfaces;
 using Bridge.Application.Dogs.Commands.CreateNewDog;
 using Bridge.Domain.Entities.Dog;
@@ -21,7 +22,7 @@ public class DogsUnitTests
         var handler = new CreateNewDogCommandHandler(mapperMock.Object, 
             unitOfWorkMock.Object, repoMock.Object);
         
-        await Assert.ThrowsAsync<InvalidDataException>(async () => await handler.Handle(command, default));
+        await Assert.ThrowsAsync<DogsNameAlreadyExists>(async () => await handler.Handle(command, default));
     }
 
     [Fact]

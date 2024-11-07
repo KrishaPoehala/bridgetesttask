@@ -5,7 +5,6 @@ using Bridge.Domain.Entities.Dog;
 using Bridge.Domain.Repositories;
 using Bridge.Domain.RepositoriesContext;
 using MediatR;
-using System.ComponentModel;
 
 namespace Bridge.Application.Dogs.Queries.GetAllDogs;
 
